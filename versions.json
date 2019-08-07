@@ -1,0 +1,11 @@
+{
+    "versionMetaTimestamp": 1540928503,
+    "latestVersion": {
+        "name": "(latest)",
+        "url": "/containers/v4.0.0/"
+    },
+    "otherVersions": [
+        { "name": "3.0.0", "url": "/containers/v4.0.0/"} 
+        { "name": "4.0.0", "url": "/containers/v3.0.0/"} 
+    ]
+ }

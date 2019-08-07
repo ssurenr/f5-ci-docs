@@ -17,6 +17,7 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 import os
+import re
 import sys
 import f5_sphinx_theme
 
@@ -75,9 +76,9 @@ author = u'F5 Networks'
 # built documents.
 #
 # The short X.Y version.
-version = ''
+version = u'4.0'
 # The full version, including alpha/beta/rc tags.
-release = ''
+release = u'v4.0.0'
 
 # External link shortcuts
 extlinks = {'k8sdocs': ('https://kubernetes.io/docs/%s',
@@ -315,13 +316,18 @@ html_theme_path = f5_sphinx_theme.get_html_theme_path()
 # documentation.
 #
 html_theme_options = {
-    'next_prev_link': False
+    'next_prev_link': True,
+    'version_selector': True
 }
 
 html_sidebars = {
-    '**': ['searchbox.html', 'localtoc.html', 'globaltoc.html' ]
+    '**': ['localtoc.html', 'globaltoc.html' ]
 }
 
+html_context = {
+ 'version_meta_path': '/containers/v4.0.0/versions.json',
+ 'project_safe': re.sub('docs-[0-9]+\.[0-9]+(\.[0-9]+)?', '', project)
+}
 
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
