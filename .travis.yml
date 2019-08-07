@@ -23,4 +23,4 @@ deploy:
     repo: F5Networks/f5-ci-docs
 
 after_deploy:
-- aws s3 cp versions.json s3://clouddocs.f5.com/containers
+- aws s3 cp versions.json s3://clouddocs.f5networks.net/containers
