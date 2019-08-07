@@ -1,0 +1,36 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: myApp.vs.https
+  labels:
+    f5type: virtual-server
+data:
+  schema: "f5schemadb://bigip-virtual-server_v0.1.7.json"
+  data: |
+    {
+      "virtualServer": {
+        "backend": {
+          "servicePort": 80,
+          "serviceName": "myService",
+          "healthMonitors": [{
+            "interval": 30,
+            "protocol": "http",
+            "send": "GET /\r\n",
+            "recv": "200|OK",
+            "timeout": 120
+          }]
+        },
+        "frontend": {
+          "virtualAddress": {
+            "port": 8443,
+            "bindAddr": "1.2.3.4"
+          },
+          "partition": "k8s",
+          "balance": "round-robin",
+          "mode": "http",
+          "sslProfile": {
+          "f5ProfileName": "Common/clientssl"
+          }
+        }
+      }
+    }

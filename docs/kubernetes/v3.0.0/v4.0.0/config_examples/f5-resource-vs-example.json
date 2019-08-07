@@ -1,0 +1,24 @@
+{
+  "virtualServer": {
+    "backend": {
+      "servicePort": 80,
+      "serviceName": "myService",
+      "healthMonitors": [{
+        "interval": 30,
+        "protocol": "http",
+        "send": "GET HTTP/1.1/\r\n",
+        "recv": "200|OK",
+        "timeout": 120
+      }]
+    },
+    "frontend": {
+      "virtualAddress": {
+        "port": 8080,
+        "bindAddr": "1.2.3.4"
+      },
+      "partition": "k8s",
+      "balance": "least-connections-member",
+      "mode": "http"
+    }
+  }
+}
