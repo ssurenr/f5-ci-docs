@@ -8,7 +8,6 @@ install:
 - pip install awscli --upgrade
 script:
 - ./scripts/docker-docs.sh ./scripts/test-docs.sh
-  #- aws s3 cp versions.json s3://clouddocs.f5.com/containers/versions.json
 
 # DEPLOY TO STAGING
 deploy:
@@ -22,3 +21,6 @@ deploy:
   on:
     branch: version-testing
     repo: F5Networks/f5-ci-docs
+
+after_deploy:
+- aws s3 cp versions.json s3://clouddocs.f5.com/containers
