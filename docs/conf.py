@@ -325,7 +325,7 @@ html_sidebars = {
 }
 
 html_context = {
- 'version_meta_path': '/containers/v4.0.0/versions.json',
+ 'version_meta_path': '/containers/versions.json',
  'project_safe': re.sub('docs-[0-9]+\.[0-9]+(\.[0-9]+)?', '', project)
 }
 
