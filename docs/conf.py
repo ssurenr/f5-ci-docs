@@ -78,7 +78,7 @@ author = u'F5 Networks'
 # The short X.Y version.
 version = u' '
 # The full version, including alpha/beta/rc tags.
-release = u'v4.0.0'
+release = u'v5.0.0'
 
 # External link shortcuts
 extlinks = {'k8sdocs': ('https://kubernetes.io/docs/%s',
