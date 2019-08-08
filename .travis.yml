@@ -19,7 +19,7 @@ deploy:
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   bucket: clouddocs.f5networks.net
   local_dir: docs/_build/html
-  upload_dir: containers/v5.0.0
+  upload_dir: containers/v6.0.0
   on:
     branch: version-testing2
     repo: F5Networks/f5-ci-docs
