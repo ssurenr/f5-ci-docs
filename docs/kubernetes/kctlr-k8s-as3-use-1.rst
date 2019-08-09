@@ -7,7 +7,7 @@ Container Ingress Services and AS3 Extensions - HTTP application use case
 
 This use case demonstrates how you can use Container Ingress Services (CIS), and Application Services 3 (AS3) Extenstions to:
 
-- Deploy a simple HTTP application (Container). 
+- Deploy a simple HTTP application (container). 
 - Expose the application using a Kubernetes Service.
 - Configure the BIG-IP system to load balance across the application (PODs).
 
