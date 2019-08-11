@@ -62,23 +62,23 @@ CIS can dynamically discover, and update the BIG-IP system's load balancing pool
 
    Multiple Kubernetes Service resources tagged with same set of labels will cause a CIS error, and service discovery failure.
 
-.. rubric:: **Service Discovery overview**
+.. rubric:: **Service label overview**
 
 .. image:: /_static/media/k8s_labels.png
    :scale: 70%
 
-.. rubric:: **Example Service with Labels**
+.. rubric:: **Example Service**
 
 .. code-block:: yaml
 
   kind: Service
   apiVersion: v1
   metadata:
-    name: stark-blog-frontend
+    name: f5-hello-world
     labels:
-      cis.f5.com/as3-tenant: "stark"
-      cis.f5.com/as3-app: "blog"
-      cis.f5.com/as3-pool: "web_pool"
+      cis.f5.com/as3-tenant: AS3
+      cis.f5.com/as3-app: f5-hello-world
+      cis.f5.com/as3-pool: web_pool
   spec:
     selector:
       run: web-service
@@ -94,11 +94,11 @@ The Kubernetes deployment created by the Kubernetes Service:
   kind: Service
   apiVersion: v1
   metadata:
-    name: stark-blog-frontend
+    name: f5-hello-world
     labels:
-      cis.f5.com/as3-tenant: "stark"
-      cis.f5.com/as3-app: "blog"
-      cis.f5.com/as3-pool: "web_pool"
+      cis.f5.com/as3-tenant: AS3
+      cis.f5.com/as3-app: f5-hello-world
+      cis.f5.com/as3-pool: web_pool
   spec:
     selector:
       run: web-service
