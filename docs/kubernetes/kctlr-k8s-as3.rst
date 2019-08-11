@@ -64,7 +64,7 @@ CIS can dynamically discover, and update the BIG-IP system's load balancing pool
 
 .. rubric:: **Service label overview**
 
-.. image:: /_static/media/k8s_labels.png
+.. image:: /_static/media/k8s_service_labels.png
    :scale: 70%
 
 .. rubric:: **Example Service**
