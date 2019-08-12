@@ -147,7 +147,7 @@ To process an AS3 declaration using CIS, set the :code:`f5type` label to :code:`
 .. note::
   CIS uses :code:`gojsonschema` to validate AS3 data. If the data structure does not conform with the schema, an error will be logged. Also, ensure the the AS3 label value is the string :code:`true`, and not the boolean :code:`True`.
 
-Exampe AS3 declaration configured for CIS processing:
+.. rubric:: **Example AS3 ConfigMap**
 
 .. code-block:: yaml
 
