@@ -71,22 +71,6 @@ CIS can dynamically discover, and update the BIG-IP system's load balancing pool
 
 .. code-block:: yaml
 
-  kind: Service
-  apiVersion: v1
-  metadata:
-    name: f5-hello-world
-    labels:
-      cis.f5.com/as3-tenant: AS3
-      cis.f5.com/as3-app: f5-hello-world
-      cis.f5.com/as3-pool: web_pool
-  spec:
-    selector:
-      run: web-service
-      ports:
-      - protocol: TCP
-        port: 80
-        targetPort: 80
-
   apiVersion: v1
   kind: Service
   metadata:
