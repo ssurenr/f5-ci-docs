@@ -156,7 +156,7 @@ To process an AS3 declaration using CIS, set the :code:`f5type` label to :code:`
   apiVersion: v1
   metadata:
     name: as3-template
-    namespace: default
+    namespace: kube-system
     labels:
       f5type: virtual-server
       as3: "true"
