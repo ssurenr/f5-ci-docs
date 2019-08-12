@@ -87,42 +87,54 @@ CIS can dynamically discover, and update the BIG-IP system's load balancing pool
         port: 80
         targetPort: 80
 
-The Kubernetes deployment created by the Kubernetes Service:
-
-.. code-block:: yaml
-
-  kind: Service
   apiVersion: v1
+  kind: Service
   metadata:
     name: f5-hello-world
+    namespace: kube-system
     labels:
+      app: f5-hello-world
       cis.f5.com/as3-tenant: AS3
       cis.f5.com/as3-app: f5-hello-world
       cis.f5.com/as3-pool: web_pool
   spec:
-    selector:
-      run: web-service
     ports:
-      - protocol: TCP
-        port: 80
-        targetPort: 80
+    - name: f5-hello-world
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    type: NodePort
+    selector:
+      app: f5-hello-world
+
+.. rubric:: **Example Deployment**
+
+.. code-block:: yaml
+
   apiVersion: apps/v1
   kind: Deployment
   metadata:
-    name: nginx-web-service
+    name: f5-hello-world
   spec:
+    replicas: 2
     selector:
       matchLabels:
-        run: web-service
-    replicas: 3
+        app: f5-hello-world
     template:
       metadata:
         labels:
-          run: web-service
+          app: f5-hello-world
       spec:
         containers:
-          - name: nginx
-            image: nginx
+        - env:
+          - name: service_name
+            value: f5-hello-world
+          image: f5devcentral/f5-hello-world:latest
+          imagePullPolicy: Always
+          name: f5-hello-world
+          ports:
+          - containerPort: 80
+            protocol: TCP
 
 .. _kctlr-k8s-as3-discovery:
 
@@ -254,3 +266,28 @@ AS3 Examples
 - :fonticon:`fa fa-download` :download:`f5-as3-template-example.yaml </kubernetes/config_examples/f5-as3-template-example.yaml>`
 - :fonticon:`fa fa-download` :download:`f5-as3-declaration-example.yaml </kubernetes/config_examples/f5-as3-declaration-example.yaml>`
 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: f5-hello-world-web
+  namespace: kube-system
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: f5-hello-world-web
+  template:
+    metadata:
+      labels:
+        app: f5-hello-world-web
+    spec:
+      containers:
+      - env:
+        - name: service_name
+          value: f5-hello-world-web
+        image: f5devcentral/f5-hello-world:latest
+        imagePullPolicy: Always
+        name: f5-hello-world-web
+        ports:
+        - containerPort: 8080
+          protocol: TCP
