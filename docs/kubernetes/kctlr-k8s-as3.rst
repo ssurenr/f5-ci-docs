@@ -99,6 +99,7 @@ CIS can dynamically discover, and update the BIG-IP system's load balancing pool
   kind: Deployment
   metadata:
     name: f5-hello-world
+    namespace: kube-system
   spec:
     replicas: 2
     selector:
