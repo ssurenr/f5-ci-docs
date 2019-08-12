@@ -48,10 +48,10 @@ CIS can dynamically discover, and update the BIG-IP system's load balancing pool
 | Label                           | Description                                                       |
 +=================================+===================================================================+
 | app: <string>                   | | This label associates the service with the deployment.          |
-|                                 | | **Important:** This label must be included, and resolve in DNS. |            
+|                                 | | *Important: This label must be included, and resolve in DNS.*   |            
 +---------------------------------+-------------------------------------------------------------------+
 | cis.f5.com/as3-tenant: <string> | | The name of the **partition** in your AS3 declaration.          |
-|                                 | | **Important:** The string must not use a hyphen (-) character.  |
+|                                 | | *Important: The string must not use a hyphen (-) character.*    |
 +---------------------------------+-------------------------------------------------------------------+
 | cis.f5.com/as3-app: <string>    | The name of the **class** in your AS3 declaration.                |
 +---------------------------------+-------------------------------------------------------------------+
