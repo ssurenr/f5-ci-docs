@@ -14,7 +14,7 @@ script:
 # DEPLOY TO STAGING
 deploy:
 - provider: script
-  script: ~/.docs/_build/html s3 sync dist s3:///clouddocs.f5networks.net/container/v6.0.0 --region=us-east-1 --delete 
+  script: ~/docs/_build/html s3 sync dist s3:///clouddocs.f5networks.net/container/v6.0.0 --region=us-east-1 --delete 
   skip_cleanup: true
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
