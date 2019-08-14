@@ -8,6 +8,9 @@ before_install:
 install: 
 - pip install awscli --upgrade
 
+before_script:
+- aws s3 rm s3://clouddocs.f5networks.net/container/v6.0.0 --recursive --region=us-east-1
+
 script:
 - ./scripts/docker-docs.sh ./scripts/test-docs.sh
 
